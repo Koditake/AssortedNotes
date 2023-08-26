@@ -49,10 +49,9 @@ There are some details you must consider regarding the hash table as a whole: Co
 
 **1. What is Collision?**
 
-**Collision** is where a hash sequence is the same for more than one hash node; when retrieving data, this is not acceptable to pull two buckets from a single hash.
+**Collision** is where a hash sequence is the same for more than one hash node; when retrieving data, this is not acceptable to pull two buckets from a single hash. 
+There are a few ways to handle collisions, but primarily they can be grouped into:
 
-There are a few ways to handle collision.
----
 
 * ***Separate chaining***: This worked using more than one hash functions to compute several hashes for one value. One hash is chosen as the bucket's top-level hash, and each following value(s) have a hash when there are several values for on top-level hash. 
 
