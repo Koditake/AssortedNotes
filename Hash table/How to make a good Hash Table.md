@@ -20,14 +20,14 @@ Hash tables are **incredibly** popular in software development. Most of the time
 
 ### What should you keep in mind when selecting/designing a hash table
 
-There are three components:
+There are three things to pay attention to:
 ---
 
-1. What is your hash function
+#### What is your hash function
 
 Most of the performance of your hash table would be affected by the performance on your hash function. There are hash functions specialized for a subset of data, others are general purposes. Regardless, careful consideration should be paid to select a good hash function.
 
-2. How do you structure you hash node and hash table
+#### How do you structure you hash node and hash table
 
 Where you hash tables and nodes live:
 
@@ -43,11 +43,11 @@ In my experience, if your hash table generally have <100 nodes, Linear search is
 
 Bear in mind that both are affected by your comparison algorithm, so how you store the key is also relevent.
 
-3. How do you handle table-wise functions.
+#### How do you handle table-wise functions.
 
 There are some details you must consider regarding the hash table as a whole: Collision, Load factor, Rehashing and Resizing
 
-1. What is Collision?
+**1. What is Collision?**
 
 **Collision** is where a hash sequence is the same for more than one hash node; when retrieving data, this is not acceptable to pull two buckets from a single hash.
 
@@ -62,7 +62,7 @@ The values can then be grouped together using a list or a tree.
 
 I see people often opted for open addressing when designing large-scale hash table, so I recommeded this approach.
 
-2. What is Load factor?
+**2. What is Load factor?**
 
 Load factor is how many spots filled versus how many inital spots in your hash table. As Load factor increasing to 1, the chance of a collision grow, which when triggered hampers performance.
 
@@ -70,7 +70,7 @@ Also, when hash table is over-utilized (load factor grow close to 1), we need to
 
 I find that the thresholds for load factors are best at 0.1 - 0.7. Bigger table can tolerate more extreme thresholds, at the expense of "insert" and "find".
 
-3. What is Rehashing?
+**3. What is Rehashing?**
 
 When a table need to resize, it need to move the nodes to a "new" hash table. Thus it need to calculate all the hashes of the nodes currently in the "old" hash table. This process is calle rehashing.
 
