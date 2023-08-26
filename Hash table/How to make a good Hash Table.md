@@ -74,3 +74,13 @@ I find that the thresholds for load factors are best at 0.1 - 0.7. Bigger table 
 When a table need to resize, it need to move the nodes to a "new" hash table. Thus it need to calculate all the hashes of the nodes currently in the "old" hash table. This process is calle rehashing.
 
 As it sound, rehashing is an incredibly expensive operation; people go to great length to avoid having to rehash their table, and MTBR (mean-time-between-rehash) is a metric to measure how good your hash table algorithm, the bigger the better.
+
+#### What is your data?
+
+Envision what is your dataset characteristic can go a long way into optimizing your hash table performance.
+
+**1. Take a look at your peers:** Looking at how people solving your problems can save you a lot of time, especially for primitives datatypes. 
+
+**2. Be mindful of your enviroment:** Keep in mind the operating enviroment of your data structure and optimize for it; one example is sometimes more instructions do not equals slower operations. On the other hand, not every tricks of the trades are worth implementing; modern compiler can optimize for conditional statements pretty good so branchless programming should be consider carefully as is it worth more complex code.
+
+**3. Game your dataset:** No matter how good your way theoratically, real tests are the gold standard. Gdb and iperf are your friends, consult them often.
